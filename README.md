@@ -1,13 +1,58 @@
-# Student template
+# AT00BY10 testiprojekti
 
-## Purpose of this repository
+Tämä repo sisältää mun tekemät unit-testit AT00BY10-kirjastolle sekä GitHub Actions- ja Coveralls-integraation.
 
-This is a project template for students participating in Software Testing course
-at LAB University of Applied Sciences.
+Tavoitteena oli rakentaa toimiva ja järkevä testikokonaisuus kurssitehtävää varten ilman, että koko kirjastoa tarvitsee testata läpi. Samalla ideana oli saada CI-putki toimimaan, coverage näkyviin ja mahdolliset löydetyt bugit raportoituina.
 
-The repository only contains the source code that is under testing, `package.json` skeleton
-and LICENSE file.
+## Mitä tässä testattiin
 
-Source code folder contains a separate license file that must **NOT** be removed under any circumstances!
-Removing this license file directly violates terms and conditions of the software under testing.
-Individuals who remove or modify the license file will also carry the consequences.
+Testasin valittuja kirjaston julkisia tiedostoja. En ottanut mukaan `.internal`-hakemistoa, koska tehtävänannossa se rajattiin pois.
+
+Mukana testeissä ovat seuraavat tiedostot:
+
+- `src/words.js`
+- `src/toNumber.js`
+- `src/toFinite.js`
+- `src/toInteger.js`
+- `src/upperFirst.js`
+- `src/slice.js`
+
+Valitsin nämä siksi, että niiden toiminta oli melko selkeä lähdekoodin ja kommenttien perusteella, ja niistä sai rakennettua järkeviä sekä normaaleja että reunatapauksia testaavia testejä.
+
+## Mitä en testannut
+
+Seuraavat jätin tämän testipaketin ulkopuolelle:
+
+- `src/.internal/*`
+- `src/map.js`
+- `src/reduce.js`
+- `src/memoize.js`
+- `src/toString.js` osittain
+
+En yrittänyt tehdä tästä täydellistä koko kirjaston testauspakettia, vaan kurssitehtävään sopivan kokonaisuuden, jolla saadaan oleellisia toiminnallisuuksia testattua ja coverage riittävän korkeaksi.
+
+## Testaustapa
+
+Testit on tehty Node.js:n omalla test runnerilla:
+
+```bash
+node --test
+Coverage tuotetaan c8:lla:
+
+
+npm run coverage
+.internal-hakemisto on rajattu pois coverage-laskennasta, koska tehtävänannossa sitä ei pitänyt sisällyttää testeihin.
+
+Projektin käynnistys lokaalisti
+
+**Asenna riippuvuudet:**
+
+npm install
+
+**Aja testit:**
+
+npm test
+
+**Aja coverage:**
+
+npm run coverage
