@@ -1,17 +1,18 @@
 {
-  "name": "software-testing-assignment",
+  "name": "at00by10-tests",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "type": "module",
   "scripts": {
-  "test": "jest",
-  "test:coverage": "nyc --reporter=lcov --reporter=text jest",
-  "coveralls": "nyc --reporter=lcov jest && cat ./coverage/lcov.info | coveralls"
-}
+    "test": "node --test",
+    "coverage": "c8 --reporter=text --reporter=lcov node --test"
   },
-  "author": "",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "c8": "^10.1.2"
+  },
+  "c8": {
+    "exclude": [
+      "src/.internal/**"
+    ]
+  }
 }
